@@ -7,4 +7,4 @@
 	<input type="number" name="e" placeholder="e"><br>
 	<input type="submit" value="GET">
 </form>
-<?php phpinfo(); ?>
+<p>truyensex.tv</p>
