@@ -7,6 +7,12 @@ $s = $_GET['s'];
 $e = $_GET['e'];
 $single_curl = single_curl($link);
 
+if (isset($link)) {
+	$file = fopen("data.txt", "w");
+	fwrite($file, $link);
+	fclose($file);
+}
+
 $links = array();
 if ($s == 1) {
 	$links[] = $link;
