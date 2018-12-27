@@ -7,4 +7,5 @@
 	<input type="number" name="e" placeholder="e"><br>
 	<input type="submit" value="GET">
 </form>
-<p><a href="info.php">phpinfo</a></p>
+<p><?php echo file_get_contents("data.txt"); ?></p>
+<pre><a href="info.php">phpinfo</a></pre>
