@@ -35,3 +35,4 @@ if (isset($_POST['submit'])) {
 	<input type="text" name="e" placeholder="e" value="<?php echo $_POST['e'] ?>"><br>
 	<input type="submit" name="submit" value="GET">
 </form>
+<p><?php echo file_get_contents("data.txt"); ?></p>
