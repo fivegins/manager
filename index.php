@@ -1,6 +1,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Get truyensex.tv</title>
+<title>Get ts.tv & tcv</title>
 <form action="multi.php" method="get">
 	<input type="text" name="link" placeholder="link"><br>
 	<input type="number" name="s" placeholder="s"><br>
