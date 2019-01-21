@@ -176,23 +176,35 @@ function getRemoteFilesize($file_url, $formatSize = true)
 
 function loc($word)
 {
-	$word = preg_replace('/ria/i', 'dia', $word);
-	$word = preg_replace('/sum/i', 'xum', $word);
-	$word = preg_replace('/boa/i', 'bo', $word);
-	$word = preg_replace('/mu /i', 'mư ', $word);
-	$word = preg_replace('/ go /i', ' gô ', $word);
-	$word = preg_replace('/Ah/i', 'A', $word);
-	$word = preg_replace('/Uh/', 'Ừ', $word);
+	$word = preg_replace('/(\W)ria(\W)/i', '$1dia$2', $word);
+	$word = preg_replace('/(\W)sum(\W)/i', '$1xum$2', $word);
+	$word = preg_replace('/(\W)boa(\W)/i', '$1bo$2', $word);
+	$word = preg_replace('/(\W)mu([^A-ZẮẰẲẴẶĂẤẦẨẪẬÂÁÀÃẢẠĐẾỀỂỄỆÊÉÈẺẼẸÍÌỈĨỊỐỒỔỖỘÔỚỜỞỠỢƠÓÒÕỎỌỨỪỬỮỰƯÚÙỦŨỤÝỲỶỸỴ])/i', '$1mư$2', $word);
+	$word = preg_replace('/(\W)go(\W)/i', '$1gô$2', $word);
+	$word = preg_replace('/(\W)ah(\W)/i', '$1a$2', $word);
+	$word = preg_replace('/(\W)uh(\W)/i', '$1ư$2', $word);
 	$word = preg_replace(array('/đkm/i', '/dkm/i', '/đcm/i', '/dcm/i', '/cmn/i'), 'con mẹ nó', $word);
-	$word = preg_replace('/([^A-Z])cm(\W)/i', '$1xen ti mét$2', $word);
+	$word = preg_replace('/([^A-Z])cm(\W)/i', '$1xen-ti-mét$2', $word);
+	$word = preg_replace('/([^A-Z])km(\W)/i', '$1ki-lô-mét$2', $word);
+	$word = preg_replace('/([^A-Z])kg(\W)/i', '$1ki-lô-gam$2', $word);
 	$word = preg_replace('/…/', '...', $word);
 	$word = preg_replace('/\.(?:\s*\.)+/', '...', $word);
+	$word = preg_replace('/,(?:\s*,)+/', ',', $word);
 	$word = str_replace(array('&quot;', '&lsquo;', '&rsquo;', '&ldquo;', '&rdquo;'), '"', $word);
 	$word = str_replace('"..."', '"Lặng!"', $word);
 	$word = preg_replace('/_/', '-', $word);
 	$word = preg_replace('/-+/', '-', $word);
-	$word = preg_replace('/-*o0o-*/', '...', $word);
+	$word = preg_replace('/-*o\s*0\s*o-*/', '...', $word);
 	$word = preg_replace('/~/', ' ', $word);
 	$word = preg_replace('/\*/', '', $word);
+	$word = preg_replace('/ (\.|\?|!|,)/', '$1', $word);
+	$word = preg_replace('/(\d{1,2}),(\d{3})/', '$1$2', $word);
 	return $word;
+}
+
+function loc_title($text)
+{
+	$text = preg_replace('/[^a-z0-9A-Z[:space:]àáãạảăắằẳẵặâấầẩẫậèéẹẻẽêềếểễệđìíĩỉịòóõọỏôốồổỗộơớờởỡợùúũụủưứừửữựỳỵỷỹýÀÁÃẠẢĂẮẰẲẴẶÂẤẦẨẪẬÈÉẸẺẼÊỀẾỂỄỆĐÌÍĨỈỊÒÓÕỌỎÔỐỒỔỖỘƠỚỜỞỠỢÙÚŨỤỦƯỨỪỬỮỰỲỴỶỸÝ]/u', '', $text);
+	$text = preg_replace('/0+(\d)/', '$1', $text);
+	return $text;
 }
