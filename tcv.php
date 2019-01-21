@@ -8,7 +8,13 @@ if (isset($_POST['submit'])) {
 	for ($i = $s; $i <= $e; $i++) { 
 		$urls[] = $link . 'chuong-' . $i . '/';
 	}
-
+	
+	if (isset($link)) {
+		$file = fopen("data.txt", "w");
+		fwrite($file, "$link&s=$s&e=$e");
+		fclose($file);
+	}
+	
 	$content = multi_curl($urls);
 	preg_match_all('#<title>(.*?)</title>#is', $content, $tit);
 
