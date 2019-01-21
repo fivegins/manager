@@ -9,7 +9,7 @@ if (isset($_POST['submit'])) {
 		$urls[] = $link . 'chuong-' . $i . '/';
 	}
 
-	$content = single_curl($urls);
+	$content = multi_curl($urls);
 	preg_match_all('#<title>(.*?)</title>#is', $content, $tit);
 
 	echo '<a style="background-color: yellow" href="get.php?link=' . $link . '&s=' . $s . '&e=' . $e . '">
