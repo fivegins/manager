@@ -8,4 +8,4 @@
 	<input type="submit" value="GET">
 </form>
 <p><?php echo file_get_contents("data.txt"); ?></p>
-<pre><a href="info.php">phpinfo</a></pre>
+<code><a href="info.php">phpinfo</a></code> | <code><a href="tcv.php">tcv</a></code>
