@@ -1,2 +1,2 @@
 # manager
--get truyensex.tv va truyencv.com
+- get truyensex.tv va truyencv.com
